@@ -291,6 +291,7 @@
     "MAINTENANCE": "Maintenance",
     "MAJOR": "Major",
     "MANAGE": "MANAGE",
+    "MANAGEMENTIP": "Management IP",
     "MARGINAL": "Marginal",
     "MASK": "Mask",
     "MAX_LENGTH_BETWEEN_DELIMITER": "Max length between two {{ delimiter }}: {{ maxLength }}",
