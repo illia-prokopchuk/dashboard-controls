@@ -158,6 +158,8 @@
             if (dataItem.ui.isFitQuery) {
                 searchStates.searchNotFound = false;
                 showAllParents(dataItem);
+            } else if (Object.values(dataItem.ui.filters).every(filter => filter.isFitQuery)) {
+                searchStates.searchNotFound = false;
             }
         }
     }
