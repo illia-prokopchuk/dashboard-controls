@@ -125,14 +125,17 @@
                     var errorMessages = {
                         '400': $i18next.t('common:ERROR_MSG.PAGINATION.400', { lng: lng }),
                         '403': $i18next.t('common:ERROR_MSG.PAGINATION.403', { lng: lng }),
-                        '500': $i18next.t('common:ERROR_MSG.ERROR_ON_SERVER_SIDE', { lng: lng }),
-                        'default': $i18next.t('common:ERROR_MSG.UNKNOWN_ERROR', { lng: lng })
+                        '500': $i18next.t('common:ERROR_MSG.ERROR_ON_SERVER_SIDE', { lng: lng })
                     };
-                    var message = lodash.get(errorMessages, String(error.status), errorMessages.default);
+                    var message = lodash.get(errorMessages, String(error.status), '');
 
-                    $rootScope.$broadcast('splash-screen_show-error', {
-                        alertText: message + ' ' + $i18next.t('common:ERROR_MSG.YOU_CAN_TRY_TO_REFRESH_PAGE', { lng: lng })
-                    });
+                    if (message) {
+                        $rootScope.$broadcast('splash-screen_show-error', {
+                            alertText: message + ' ' + $i18next.t('common:ERROR_MSG.YOU_CAN_TRY_TO_REFRESH_PAGE', { lng: lng })
+                        });
+                    } else {
+                        vm.isSplashShowed.value = false;
+                    }
                 });
         }
 
