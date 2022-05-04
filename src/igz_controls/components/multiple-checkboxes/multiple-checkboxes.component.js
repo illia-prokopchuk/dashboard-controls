@@ -71,7 +71,7 @@
      *                 },
      *                 {
      *                     value: 'presto',
-     *                     label: 'Presto
+     *                     label: 'Trino'
      *                 }
      *             ];
      *         }
@@ -122,7 +122,7 @@
      *                         value: 'presto'
      *                     },
      *                     ui: {
-     *                         label: 'Presto
+     *                         label: 'Trino'
      *                     }
      *                 }
      *             ];
