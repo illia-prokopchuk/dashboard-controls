@@ -42,18 +42,19 @@
          */
         function copyToClipboard() {
             if (document.queryCommandSupported && document.queryCommandSupported('copy')) {
-                var textarea = document.createElement('textarea');
-                textarea.textContent = ctrl.value;
-                textarea.style.position = 'fixed';
-                document.body.appendChild(textarea);
-                textarea.select();
+                const temp = document.createElement('div');
+                temp.setAttribute('contentEditable', true);
+                temp.innerHTML = ctrl.value;
+                temp.setAttribute('onfocus', 'document.execCommand(`selectAll`)');
+                document.body.appendChild(temp);
+                temp.focus();
 
                 try {
-                    return document.execCommand('copy'); // Security exception may be thrown by some browsers.
+                    document.execCommand('copy'); // Security exception may be thrown by some browsers.
                 } catch (ex) {
                     DialogsService.alert($i18next.t('common:COPY_TO_CLIPBOARD_FAILED', {lng: lng}), ex);
                 } finally {
-                    document.body.removeChild(textarea);
+                    document.body.removeChild(temp);
                 }
             }
         }
