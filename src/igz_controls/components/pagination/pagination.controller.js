@@ -61,7 +61,6 @@ such restriction.
                 vm.closeInfoPane();
             }
 
-            vm.dataIsLoaded = false;
             vm.page.size = perPage;
             vm.page.number = lodash.isNil(selectedItemId) ? pageNumber : 0;
 
@@ -110,7 +109,6 @@ such restriction.
                         ActionCheckboxAllService.setCheckedItemsCount(checkedItems.length);
                     }
 
-                    vm.dataIsLoaded = true;
                     vm.page.total = lodash.get(vm[entitiesType], 'total_pages', 1);
                     vm.page.number = lodash.get(vm[entitiesType], 'page_number', vm.page.number);
 
