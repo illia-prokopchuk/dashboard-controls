@@ -325,7 +325,6 @@ such restriction.
             if (ctrl.submitOnFly) {
                 $timeout(saveChanges);
             }
-
         }
 
         /**
