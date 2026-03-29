@@ -515,6 +515,18 @@ such restriction.
                             }
                         }
                     ]
+                },
+                supportLogs: {
+                    contextId: [
+                        generateRule.validCharacters('0-9'),
+                        {
+                            name: 'minValue',
+                            label: $i18next.t('common:MIN', { lng: lng })  + ' 1',
+                            pattern: function (value) {
+                                return value >= 1
+                            }
+                        },
+                    ]
                 }
             },
             container: {
